@@ -1,7 +1,7 @@
 <template>
   <div class = "bg">
-    <p class="card">
-      {{text}}
+    <p class="context">
+      <slot></slot>
     </p>
   </div>
 </template>
@@ -12,12 +12,16 @@ export default {
 }
 </script>
 
-<style>
-.card {
+<style lang="scss">
+@import "static/css/theme.scss";
+
+.context {
   padding: 10px;
+  text-align: center;
 }
 .bg {
-  background-color: #f00;
-  border-radius: 40px 50%;
+  background-color: $base-color;
+  border-radius: 20px;
+  height: 40px;
 }
 </style>
