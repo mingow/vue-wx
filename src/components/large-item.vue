@@ -1,7 +1,7 @@
 <template>
   <div>
-    <image class="card" v-bind:style="computedClassObject" v-bind:src="src"></image>
-    <p v-bind:style="style">demo</p>
+    <image class="card shadow" v-bind:style="computedClassObject" v-bind:src="src"></image>
+    <p class="title" v-bind:style="style">Fashion</p>
   </div>
 </template>
 
@@ -52,5 +52,16 @@ export default {
 <style>
 .card {
   padding: 10px;
+
+}
+.shadow {
+  box-shadow: 0 0 20px #aeaeae;
+}
+.title {
+  position: relative;
+  left: 12px;
+  bottom: 16px;
+  font-weight: bold;
+  color: #877dbb;
 }
 </style>

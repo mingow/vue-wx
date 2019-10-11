@@ -16,6 +16,7 @@
       </div>
     </div>
     <largeItem imageHeight="100" imageWidth="100" color="red"></largeItem>
+    <aButton>123</aButton>
     <form class="form-container">
       <input type="text" class="form-control" :value="motto" placeholder="v-model" />
       <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
@@ -36,6 +37,7 @@
 <script>
 import card from '@/components/card'
 import largeItem from '@/components/large-item'
+import aButton from '@/components/button'
 
 export default {
   data () {
@@ -49,7 +51,7 @@ export default {
   },
 
   components: {
-    card, largeItem
+    card, largeItem, aButton
   },
 
   methods: {
