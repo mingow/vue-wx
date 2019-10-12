@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <image class="card shadow" v-bind:style="computedClassObject" v-bind:src="src"></image>
+  <div class="grid">
+    <image mode="aspectFill" class="shadow" v-bind:style="computedClassObject" v-bind:src="src"></image>
     <p class="title" v-bind:style="style">Fashion</p>
   </div>
 </template>
@@ -14,11 +14,15 @@ export default {
     },
     imageWidth: {
       type: String,
-      default: '100%'
+      default: ''
     },
     imageHeight: {
       type: String,
-      default: '100%'
+      default: ''
+    },
+    src: {
+      type: String,
+      dafault: ''
     }
   },
   data () {
@@ -50,9 +54,11 @@ export default {
 </script>
 
 <style>
+.grid {
+  margin:10px;
+}
 .card {
-  padding: 10px;
-
+  /* padding: 10px; */
 }
 .shadow {
   box-shadow: 0 0 20px #aeaeae;

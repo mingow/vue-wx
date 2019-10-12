@@ -1,1 +1,6 @@
+@import "static/css/base.scss";
+
 $base-color: #f200ff;
+$shadow: #aeaeae;
+$shadow-dark: darken($shadow, 40%);
+$base-color-darken: darken($base-color, 40%);

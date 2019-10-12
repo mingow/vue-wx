@@ -1,5 +1,5 @@
 <template>
-  <div @click="clickHandle">
+  <div class="bg">
 
     <div class="userinfo" @click="bindViewTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
@@ -15,13 +15,9 @@
         <card :text="motto"></card>
       </div>
     </div>
-    <largeItem imageHeight="100" imageWidth="100" color="red"></largeItem>
-    <aButton>123</aButton>
-    <form class="form-container">
-      <input type="text" class="form-control" :value="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
-    </form>
+    <largeItem bind:class="{'col-3':isTrue}" color="red" :src="src"></largeItem>
+    <aButton  v-on:click="clickComponent" glow><span class="text">123</span></aButton>
+
 
     <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
 
@@ -43,10 +39,12 @@ export default {
   data () {
     return {
       motto: 'Hello miniprograme',
+      isTrue: true,
       userInfo: {
         nickName: 'mpvue',
         avatarUrl: 'http://mpvue.com/assets/logo.png'
-      }
+      },
+      src: ''
     }
   },
 
@@ -66,16 +64,41 @@ export default {
     clickHandle (ev) {
       console.log('clickHandle:', ev)
       // throw {message: 'custom test'}
+    },
+    clickComponent (ev) {
+      console.log(ev)
     }
   },
 
   created () {
     // let app = getApp()
+    wx.cloud.getTempFileURL({
+      fileList: ['cloud://vue-homeparty-4iqxy.7675-vue-homeparty-4iqxy-1300407309/resources/quentin-dr-gvm_Kmm3-9o-unsplash.jpg'],
+      success: res => {
+        // get temp file URL
+        console.log(res.fileList)
+        var own = this
+        res.fileList.map(function (i) {
+          own.src = i.tempFileURL
+          console.log(own.src)
+        })
+      },
+      fail: err => {
+        console.log(err)
+      }
+    })
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "static/css/theme.scss";
+.bg {
+  /* background-color: #252525; */
+}
+.text {
+  color:#000;
+}
 .userinfo {
   display: flex;
   flex-direction: column;

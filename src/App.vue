@@ -30,7 +30,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "static/css/theme.scss";
 .container {
   height: 100%;
   display: flex;
